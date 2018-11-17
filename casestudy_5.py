@@ -6,8 +6,7 @@ import urllib.request
 
 with open('input.txt', 'r') as f_in:
     for line in f_in:
-        text = f_in.readline()
-        f = urllib.request.urlopen(text)
+        f = urllib.request.urlopen(line)
         s = f.read()
         text = str(s)
         part_name = text.find("player-name")
