@@ -1,4 +1,4 @@
-"""Case-study #4 Парсинг web-страниц
+"""Case-study #5 Парсинг web-страниц
 Разработчики:
 Золотых М.Д., Шерубнева А., Зеленская А.
 """
@@ -24,5 +24,28 @@ with open('input.txt', 'r') as f_in:
         repl2 = res[res.find('.', res.find('.')) - 3:res.find('.', res.find('.')) + 2]
         res = res.replace(repl2, '')
         res = res.replace("  ", " ")
-
-        print('{:<20s}{:<105s}'.format(name, res))
+        res = res[1:]
+        comp_b = res.find(' ')
+        comp = res[0:(comp_b)]
+        res = res[(comp_b)+1:]
+        att_b = res.find(' ')
+        att = res[0:(att_b)]
+        res = res[(att_b) + 1:]
+        yds_b = res.find(' ')
+        yds = res[0:(yds_b)]
+        res = res[(yds_b) + 1:]
+        td_b = res.find(' ')
+        td = res[0:(td_b)]
+        res = res[(td_b) + 1:]
+        int_b = res.find(' ')
+        int = res[0:(int_b)]
+        res = res[(int_b) + 1:]
+        f1 = res.find(' ')
+        res = res[(f1)+1:]
+        f2 = res.find(' ')
+        res = res[(f2) + 1:]
+        rate_b = res.find(' ')
+        rate = res[0:(rate_b)]
+        rate = float(rate)
+        with open ('output.txt', 'w') as f_out:
+            print('{:<20s} {:<7s} {:<7s} {:<7s} {:<7s} {:<7s} {:<7.2f}'.format(name, comp, att, yds, td, int, rate), file = f_out)
